@@ -28,3 +28,28 @@ html {
   overflow-y: auto;
   position: relative;
 }
+
+/* Style for the add new trip button */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* Style adjustments for modal content */
+.modal-content form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-content form input,
+.modal-content form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.modal-content form button {
+  margin-right: 10px;
+  padding: 8px 16px;
+}

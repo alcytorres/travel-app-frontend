@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function TripModal({ trip, onClose }) {
+export function TripModal({ trip, onClose, onEdit, onDelete }) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -9,6 +9,9 @@ export function TripModal({ trip, onClose }) {
         <p><strong>Continent:</strong> {trip.continent}</p>
         <p><strong>Year:</strong> {trip.year}</p>
         <p><strong>Highlights:</strong> {trip.highlights}</p>
+        {/* Edit and Delete Buttons */}
+        <button onClick={onEdit}>Edit</button>
+        <button onClick={onDelete}>Delete</button>
         <button onClick={onClose}>Close</button>
       </div>
     </div>
