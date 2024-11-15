@@ -1,0 +1,14 @@
+/* Styles for MapComponent */
+
+.map-container {
+  height: 87vh;
+  width: 100%;
+}
+
+.add-trip-button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
