@@ -95,6 +95,7 @@ export function MapComponent() {
       <MapContainer
         center={[25.276987, 51.520008]} // Centered on Doha initially
         zoom={2}
+        minZoom={2}
         style={{ height: '80vh', width: '100%' }}
       >
         <TileLayer

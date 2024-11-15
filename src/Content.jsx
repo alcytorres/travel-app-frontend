@@ -1,7 +1,8 @@
 export function Content() {
   return (
     <main>
-      <h1>Welcome to React!</h1>
+      <br></br>
+      <h1></h1>
     </main>
   )
 }
