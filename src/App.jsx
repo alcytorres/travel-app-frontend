@@ -9,8 +9,8 @@ function App() {
     <div>
       <Header />
       <MapComponent />
-      <Content />
-      <Footer />
+      {/* <Content />
+      <Footer /> */}
     </div>
   )
 }

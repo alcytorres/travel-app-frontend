@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './TripForm.css';
 
 // Created TripForm.jsx component for adding and editing trips based on the presence of a trip prop.
+
+
+// Placeholder text
+
+
 
 export function TripForm({ trip, onSuccess, onCancel }) {
   const [formData, setFormData] = useState({
@@ -38,7 +44,9 @@ export function TripForm({ trip, onSuccess, onCancel }) {
         .then((response) => {
           onSuccess(response.data);
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          console.error("Error updating trip:", error); // NEW
+        });
     } else {
       // Create new trip
       axios
@@ -46,7 +54,9 @@ export function TripForm({ trip, onSuccess, onCancel }) {
         .then((response) => {
           onSuccess(response.data);
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          console.error("Error creating trip:", error); // NEW
+        });
     }
   };
 
@@ -89,9 +99,9 @@ export function TripForm({ trip, onSuccess, onCancel }) {
             <input type="text" name="image_url" value={formData.image_url} onChange={handleChange} required />
           </label>
           <button type="submit">{trip ? 'Update Trip' : 'Add Trip'}</button>
-          <button type="button" onClick={onCancel}>
+          {/* <button type="button" onClick={onCancel}>
             Cancel
-          </button>
+          </button> */}
         </form>
       </div>
     </div>

@@ -7,6 +7,8 @@ import 'leaflet/dist/leaflet.css';
 import './Map.css';
 import L from 'leaflet';
 
+// Placeholder text
+
 // Import Marker Images
 import blueMarker from './assets/blue-marker.png';
 import redMarker from './assets/red-marker.png';
@@ -42,7 +44,9 @@ export function MapComponent() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/trips`)
       .then((response) => setTrips(response.data))
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error("Error fetching trips:", error); // NEW: Log the error
+      });
   };
 
   // Function to handle trip creation or update
@@ -59,10 +63,12 @@ export function MapComponent() {
       axios
         .delete(`${import.meta.env.VITE_BACKEND_URL}/trips/${tripId}`)
         .then(() => {
-          fetchTrips();
-          setSelectedTrip(null);
+          fetchTrips(); // Refresh trips after deletion
+          setSelectedTrip(null); // Clear selected trip
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          console.error("Error deleting trip:", error); // NEW: Log delete errors
+        });
     }
   };
 
@@ -89,10 +95,13 @@ export function MapComponent() {
 
   // Rendering the Map and Trip Markers
   return (
-    <>
-      {/* Button to add a new trip */}
-      <button className="add-trip-button" onClick={() => setShowForm(true)}>
-        Add New Trip
+    <div className="map-container-wrapper"> {/* NEW: Wrapper for positioning */}
+      {/* NEW: Add New Trip Button */}
+      <button
+        className="add-trip-overlay"
+        onClick={() => setShowForm(true)}
+      >
+        Add Trip
       </button>
 
       <MapContainer
@@ -150,6 +159,6 @@ export function MapComponent() {
           }}
         />
       )}
-    </>
+    </div>
   );
 }
